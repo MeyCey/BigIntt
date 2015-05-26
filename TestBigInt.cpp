@@ -86,7 +86,7 @@ std::ostream& performTest(std::ostream& os, TestBigInt& t)
 	t.doTests(); // do the given tests with BigInt
 
 	// the condition part is verbose, since it is assumed that vectors are of exact same size anyway
-	for (auto itE = t.exResult.cbegin(), itO = t.outResult.cbegin(); (itE != t.exResult.cend()) || (itO != t.outResult.cend()); ++itE, ++itO)
+	for (auto itE = t.exResult.cbegin(), itO = t.outResult.cbegin(); (itE != t.exResult.cend()) && (itO != t.outResult.cend()); ++itE, ++itO)
 		if (*itE != *itO)
 			os << "Test not passed: " << t.label  << ", " << distance(t.exResult.cbegin(), itE) << "\n\tExpected: " << *itE << ", got " << *itO << "\n";
 	
